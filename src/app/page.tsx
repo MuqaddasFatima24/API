@@ -1,101 +1,145 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import Link from "next/link";
+import { FaEnvelope, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
+
+const HomePage = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <main className="min-h-screen bg-gray-100 text-gray-900 font-sans">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 text-white text-center py-20">
+        <h1
+          className="text-6xl font-extrabold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-green-400 to-blue-500 animate-fadeIn"
+        >
+          Welcome to <span className="underline decoration-wavy">Attractive App 🚀</span>
+        </h1>
+        <p className="text-xl mb-8 max-w-2xl mx-auto">
+          Discover dynamic content, explore posts, and enjoy a sleek, modern design. Whether you're here to fetch posts,
+          browse features, or admire a user-friendly interface, you're in the right place!
+        </p>
+        <Link href="/fetch-posts">
+          <button className="bg-gradient-to-r from-yellow-500 to-orange-500 text-white py-3 px-8 rounded-full shadow-md hover:shadow-xl transform hover:scale-105 transition duration-300">
+            View Posts 📄
+          </button>
+        </Link>
+      </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+      {/* Features Section */}
+      <section className="py-16 px-6">
+        <h2 className="text-4xl font-extrabold text-center mb-10">
+          What We Offer <span className="text-yellow-500">🌟</span>
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+            <h3 className="text-2xl font-bold mb-2 flex items-center">
+              Dynamic Posts <span className="ml-2 text-pink-500 text-2xl">📑</span>
+            </h3>
+            <p className="text-gray-700">
+              Fetch and display dynamic posts from our API with clean, responsive designs. Perfect for developers looking to
+              integrate real-world API data.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+            <h3 className="text-2xl font-bold mb-2 flex items-center">
+              Interactive Features <span className="ml-2 text-purple-500 text-2xl">🎨</span>
+            </h3>
+            <p className="text-gray-700">
+              Enjoy smooth animations, seamless transitions, and an intuitive interface for the best user experience.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+            <h3 className="text-2xl font-bold mb-2 flex items-center">
+              Easy Navigation <span className="ml-2 text-yellow-500 text-2xl">🧭</span>
+            </h3>
+            <p className="text-gray-700">
+              Quickly navigate to various sections, explore posts in detail, and interact with ease.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+            <h3 className="text-2xl font-bold mb-2 flex items-center">
+              Built for Scalability <span className="ml-2 text-red-500 text-2xl">📈</span>
+            </h3>
+            <p className="text-gray-700">
+              Designed with Next.js and Tailwind CSS, this app is optimized for speed, scalability, and performance.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+            <h3 className="text-2xl font-bold mb-2 flex items-center">
+              Beautiful Design <span className="ml-2 text-blue-500 text-2xl">💎</span>
+            </h3>
+            <p className="text-gray-700">
+              From typography to colors, every element is crafted for aesthetics and functionality.
+            </p>
+          </div>
+          <div className="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+            <h3 className="text-2xl font-bold mb-2 flex items-center">
+              Open Source <span className="ml-2 text-green-500 text-2xl">🔓</span>
+            </h3>
+            <p className="text-gray-700">
+              Explore the codebase, contribute to the project, or use it as a resource for your next app.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white text-center py-8">
+        <p className="text-lg mb-4 font-semibold">
+          © {new Date().getFullYear()} Attractive App. Built with ❤️ using:
+        </p>
+        <div className="flex justify-center space-x-6 text-3xl mb-4">
           <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:muqaddasfatima576@gmail.com"
+            className="hover:text-yellow-400 transition"
+            aria-label="Email"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
+            <FaEnvelope />
           </a>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            href="https://www.linkedin.com/in/muqaddas-fatima-6aaa0a2b3"
             target="_blank"
             rel="noopener noreferrer"
+            className="hover:text-blue-400 transition"
+            aria-label="LinkedIn"
           >
-            Read our docs
+            <FaLinkedin />
+          </a>
+          <a
+            href="https://www.instagram.com/muqaddas_fatima25"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-pink-400 transition"
+            aria-label="Instagram"
+          >
+            <FaInstagram />
+          </a>
+          <a
+            href="https://nextjs.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-gray-300 transition"
+            aria-label="Next.js"
+          >
+            <SiNextdotjs />
+          </a>
+          <a
+            href="https://tailwindcss.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-teal-400 transition"
+            aria-label="Tailwind CSS"
+          >
+            <SiTailwindcss />
           </a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+        <p className="text-sm">
+          <span className="font-semibold">Email:</span> muqaddasfatima576@gmail.com |{" "}
+          <span className="font-semibold">LinkedIn:</span> linkedin.com/in/muqaddas-fatima-6aaa0a2b3
+        </p>
       </footer>
-    </div>
+    </main>
   );
-}
+};
+
+export default HomePage;
